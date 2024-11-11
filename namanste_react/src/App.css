@@ -1,7 +1,7 @@
 *{
 margin: 0%;
 padding: 0%;
-background-color: black;
+background-color: white;
 }
 .Header{
     display: flex;
@@ -40,7 +40,7 @@ margin-right: 10px;}
    padding: 10px;
    overflow: hidden;
    margin: 10px;
-   color: whitesmoke;
+   color: rgb(0, 0, 0);
    
    
    
@@ -100,10 +100,83 @@ flex-wrap: wrap;
     flex: wrap;
 }
 .log-btm{
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
     margin-left: 20px;
     margin-right: 25px;
 }
 .inputsearch{
     color: whitesmoke;
+}
+.cont_conatiner{
+    border: 2px solid rgb(232, 228, 228);
+    justify-content: center;
+    align-items: center;
+}
+li{
+    text-align: none;
+    color: rgb(0, 0, 0);
+}
+
+    
+    
+
+
+.menuresname{
+    height: 100%;
+    width: 80vh;
+    margin-left: 50vh;
+   
+    color: rgb(0, 0, 0);
+    border-radius: 25px solid rgb(210, 2, 2);
+    background-color: white;
+    margin-top: 20px;
+    
+    
+    
+    
+}
+.menuresname h1{
+    background-color: white;
+    display: inline;
+}
+.menuresname p{
+    background-color: white;
+    margin: 15px;
+    
+}
+.menu{
+    background-color: white;
+}
+
+
+
+
+/* menu item cssss */
+
+.menucard{
+    margin: 0px;
+    padding: 0px;
+    
+}
+.menucard p{
+    margin: 2px;
+    padding: 2px;
+}
+.price_offer{
+    display: flex;
+    flex: wrap;
+}
+.price_offer p{
+    margin: 3px;
+}
+.menu_cart{
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+    border: 1px solid beige;
+}
+.menu_image{
+    height:130px;
+    width: 150px;
+    background-color: aqua;
 }
