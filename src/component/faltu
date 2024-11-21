@@ -1,1 +1,44 @@
       { filteredlist.map ( restaurant => (<Link to={"/resmenu"+filteredlist.info.id}><Resto_cart Resdata = {restaurant} /></Link>))}
+
+
+      import { useEffect } from "react";
+import Shimmer from "./Shimmer";
+import Menudetail from "./Menudetail";
+import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+
+const RestaurantMenuPage = () => {
+    const { resId } = useParams();
+    const resInfo = useRestaurantMenu(resId);
+
+    // Extract data safely
+    const restaurantInfo = resInfo?.cards?.[2]?.card?.card?.info || {};
+    const menuDetails =
+        resInfo?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[5]?.card?.card?.itemCards || [];
+
+    // Destructure restaurant information
+    const { name, id, cuisines } = restaurantInfo;
+
+    return !resInfo ? (
+        <Shimmer />
+    ) : (
+        <div className="restaurant-menu-page">
+            <div className="restaurant-info">
+                <h1>{name}</h1>
+                <p>Restaurant ID: {id}</p>
+                <p>Cuisines: {cuisines?.join(", ")}</p>
+            </div>
+            <div className="menu">
+                {menuDetails.length > 0 ? (
+                    menuDetails.map((item, index) => (
+                        <Menudetail key={item?.card?.info?.id || index} menudetail={item} />
+                    ))
+                ) : (
+                    <p>No menu items available.</p>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default RestaurantMenuPage;

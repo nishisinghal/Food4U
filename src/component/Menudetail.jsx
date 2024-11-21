@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 const Menudetail = ( {menudetail} ) => {
     // Check if menudetail and itemcards exist before accessing the first item
-    console.log(menudetail);
+    
 
     const {resId}= useParams();
-    console.log(resId)
+    
 
 
     return (

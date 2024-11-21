@@ -1,7 +1,8 @@
 *{
 margin: 0%;
 padding: 0%;
-background-color: white;
+background-color: black;
+color: whitesmoke;
 }
 .Header{
     display: flex;
@@ -90,7 +91,6 @@ flex-wrap: wrap;
    padding: 10px;
    overflow: hidden;
    margin: 10px;
-   
    background-color: rgb(56, 56, 55);
 }
 .footer{
@@ -126,9 +126,9 @@ li{
     width: 80vh;
     margin-left: 50vh;
    
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border-radius: 25px solid rgb(210, 2, 2);
-    background-color: white;
+    background-color: black;
     margin-top: 20px;
     
     
@@ -136,16 +136,16 @@ li{
     
 }
 .menuresname h1{
-    background-color: white;
+    background-color: black;
     display: inline;
 }
 .menuresname p{
-    background-color: white;
+    background-color: black;
     margin: 15px;
     
 }
 .menu{
-    background-color: white;
+    background-color: black;
 }
 
 
@@ -178,5 +178,4 @@ li{
 .menu_image{
     height:130px;
     width: 150px;
-    background-color: aqua;
 }

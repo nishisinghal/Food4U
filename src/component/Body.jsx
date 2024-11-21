@@ -9,10 +9,6 @@ import { Link } from "react-router-dom";
 const Body = () =>{
     const [listofrest, setlistofrest] = useState([]);
     const [filteredlist, setfilteredlist]= useState([]);
-    
-  
-    
-    useEffect(()=>{Fetchdata()}, []);
     const Fetchdata =async ()=>{
       const data = await fetch(
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.2138156&lng=75.8647527&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");    
@@ -23,6 +19,9 @@ const Body = () =>{
   
           
     }
+  
+    
+    useEffect(()=>{Fetchdata()}, []);
     console.log(filteredlist[0]?.info?.id);
     
     
