@@ -35,7 +35,7 @@ const Menudetail = ( {menudetail} ) => {
                         <p>*4.0(5)</p>
                     </div>
                     <div className="menu_item_description">
-                        <p>{menudetail?.card?.info?.description}</p>
+                        <p> <span> {menudetail?.card?.info?.description}</span></p>
                     </div>
                 </div>
 

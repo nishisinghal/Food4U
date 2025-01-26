@@ -7,7 +7,7 @@ color: whitesmoke;
 .Header{
     display: flex;
     text-decoration-style: none;
-    color: black;
+    color: whitesmoke;
     height: 100px;
     justify-content: space-between;
     border: 1px solid black;
@@ -29,7 +29,9 @@ color: whitesmoke;
 }
 .nav-item > ul > li{
    margin-left: 50px;
-margin-right: 10px;}
+margin-right: 10px;
+color: whitesmoke;
+text-decoration: none;}
 
 
 .Res_card{
@@ -43,11 +45,19 @@ margin-right: 10px;}
    margin: 10px;
    color: rgb(0, 0, 0);
    
-   
-   
-
 }
-
+/* .Res_card{
+    padding: 0px;
+    display: flex;
+    list-style: none;
+    margin-block-end: 0px;
+    display: grid
+;   -webkit-box-align: start;
+    align-items: start;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin: 32px 16px;
+} */
 .body{
     padding: 10px;
 }
@@ -70,9 +80,6 @@ margin-right: 10px;}
 .Res_image{
     height: 150px;
     width: 220px;
-    
-   
-    
 }
 .Res_card_image{
     width: 100%;
@@ -100,7 +107,7 @@ flex-wrap: wrap;
     flex: wrap;
 }
 .log-btm{
-    color: rgb(0, 0, 0);
+    color: whitesmoke;
     margin-left: 20px;
     margin-right: 25px;
 }
@@ -114,26 +121,18 @@ flex-wrap: wrap;
 }
 li{
     text-align: none;
-    color: rgb(0, 0, 0);
+    color: whitesmoke;
 }
-
-    
-    
-
-
 .menuresname{
     height: 100%;
-    width: 80vh;
-    margin-left: 50vh;
+    width: 80%;
+    align-content: center;
+    
    
     color: rgb(255, 255, 255);
     border-radius: 25px solid rgb(210, 2, 2);
     background-color: black;
-    margin-top: 20px;
-    
-    
-    
-    
+    margin-top: 20px; 
 }
 .menuresname h1{
     background-color: black;
@@ -147,12 +146,6 @@ li{
 .menu{
     background-color: black;
 }
-
-
-
-
-/* menu item cssss */
-
 .menucard{
     margin: 0px;
     padding: 0px;
@@ -178,4 +171,17 @@ li{
 .menu_image{
     height:130px;
     width: 150px;
+}
+
+@media (max-width: 950px){
+    .nav-item{
+        display:none;
+
+    }
+}
+
+.restaurantmenu_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,4 +1,3 @@
-
 import Shimmer from "./Shimmer";
 import Menudetail from "./Menudetail"
 import { useParams } from "react-router-dom";
@@ -15,18 +14,16 @@ const RestaurantMenuPage = () => {
     const { name,  id  , cuisines } = restaurantinfo;
 
     return resInfo === null ? <Shimmer />:(
-        <>  
+        <>  <div className="restaurantmenu_container">
             <div className="menuresname">
                 <h1>{name}</h1>
                 <p>{id}</p>
                 <div className="menu">
                     { menudetail.map( (res) => (<Menudetail menudetail = {res} />))}
+                </div>
             </div>
             </div>
-           
-            
         </>
     );
 };
-
 export default RestaurantMenuPage;

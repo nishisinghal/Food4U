@@ -6,8 +6,7 @@ const Header =()=>{
     return(
     <div className='Header'>
       <div className='logo'>
-        <img src="logo.png" 
-        alt="logo" />
+       <h1><b> CraveIt</b></h1>
       </div>
      
       <div className='nav-item'>
