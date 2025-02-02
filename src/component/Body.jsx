@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import Search_Button from "./Search_Button";
 import Resto_cart from "./Restocart";
 import { Link } from "react-router-dom";
+import useonlinestatus from "../utils/useonlinestatus";
 
 
 
@@ -24,6 +25,7 @@ const Body = () =>{
     useEffect(()=>{Fetchdata()}, []);
     console.log(filteredlist[0]?.info?.id);
     
+    if(useonlinestatus() === false) return (<h1>Plese check your internet connection...</h1>)
     
     return listofrest.length === 0 ? <Shimmer /> : (
     <>

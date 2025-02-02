@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // import App from './App.jsx'
@@ -23,6 +24,7 @@ function Applayout() {
 
   )
 }
+const Grocery = lazy(()=> import('./component/Grocery'));
 
 const appRouter = createBrowserRouter([
   {
@@ -40,6 +42,11 @@ const appRouter = createBrowserRouter([
         {
           path: '/contactus',
           element:<Contactus />
+      
+        },
+        {
+          path: '/grocery',
+          element:<Grocery />
       
         },
         {
