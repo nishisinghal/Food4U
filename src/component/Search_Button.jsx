@@ -13,17 +13,17 @@ const Search_Button = ({ listofrest, setfilteredlist }) => {
   };
 
   return (
-    <div className="search">
+    <div className="search flex flex-wrap gap-3 items-center justify-center " >
       <input
         type="search"
-        className="inputsearch"
+        className="inputsearch border-2 "
         placeholder="Search!"
         value={searchvalue}
         onChange={(e) => setsearchvalue(e.target.value)}
       />
       <button
         type="button"
-        className="btn btn-outline-success"
+        className="btn btn-outline-success pl-2"
         onClick={handleSearch}
         >
          

@@ -34,13 +34,13 @@ const Body = () =>{
   
       <Search_Button listofrest={listofrest} 
               setfilteredlist={setfilteredlist} ></Search_Button>
-      <button className='btn_toprate' onClick={()=>{
+      <button className='flex p-1 border-2 m-2 bg-fuchsia-200 hover:bg-black hover:text-pink-400  ' onClick={()=>{
         const topratefilter = listofrest.filter((res) => res.info.avgRating > 4);
         setfilteredlist(topratefilter);
      }}>
-       Top Rated Restaurant</button>
+       Top Rated Restaurant</button> 
   </div>
-      <div className="Res_cart_conatiner">
+      <div className="Res_cart_conatiner flex flex-wrap gap-10 p-2 fill-black ">
       {/* { filteredlist.map ( restaurant => (<Resto_cart Resdata = {restaurant} />))} */}
       { filteredlist.map ( restaurant => (<Link to={"/resmenu/"+restaurant.info.id}><Resto_cart Resdata = {restaurant} /></Link>))}
 
