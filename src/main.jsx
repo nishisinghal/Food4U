@@ -13,18 +13,37 @@ import Body from './component/Body'
 import About from './component/About'
 import Contactus from'./component/Contactus'
 import RestaurantMenuPage from './component/RestaurantMenuPage'
+import UserContext from './utils/UserContext'
+import { Provider } from 'react-redux'
+import appstore from './utils/appstore'
 
 function Applayout() {
-  return (<>
+
+  const[userName,setUsername]= useState();
+  // useEffect(()=>{
+  //   setUsername("Naman Mangal");
+  //   }
+   
+  //  )
+  useEffect(() => {
+    if (!userName) {  // Only set default name if it's empty
+      setUsername("Naman Mangal");
+    }
+  }, []);
+   
+  return (
+    <Provider  store={appstore}>
+    <UserContext.Provider value= {{loggedInUser: userName , setUsername}}>
     <Header />
     <Outlet />
     
-    
-    </>
+    </UserContext.Provider>
+    </Provider>
 
   )
 }
 const Grocery = lazy(()=> import('./component/Grocery'));
+
 
 const appRouter = createBrowserRouter([
   {

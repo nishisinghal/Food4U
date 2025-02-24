@@ -1,29 +1,50 @@
 import Shimmer from "./Shimmer";
-import Menudetail from "./Menudetail"
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-
+import RestaurantCategory from "./RestaurantCategory"; // Fixed typo
 
 const RestaurantMenuPage = () => {
-   
-    const {resId}= useParams();
+    const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
-    const restaurantinfo = resInfo?.cards?.[2]?.card?.card?.info || {};
-    const menudetail=  resInfo?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card.card.itemCards || [];
-    
-    const { name,  id  , cuisines } = restaurantinfo;
 
-    return resInfo === null ? <Shimmer />:(
-        <>  <div className="restaurantmenu_container">
-            <div className="menuresname">
-                <h1>{name}</h1>
-                <p>{id}</p>
-                <div className="menu">
-                    { menudetail.map( (res) => (<Menudetail menudetail = {res} />))}
-                </div>
+    // Handle loading state
+    if (!resInfo) return <Shimmer />; 
+
+    // console.log("Restaurant Info:", resInfo); // Debugging log
+
+    const restaurantinfo = resInfo?.cards?.[2]?.card?.card?.info || {};
+    
+    // Ensure REGULAR.cards exists before filtering
+    const regularCards = resInfo?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+    
+    const categories = regularCards
+        ? regularCards.filter(
+            (c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        )
+        : [];
+
+    // console.log("Categories:", categories); // Debugging log
+
+    const { name, id } = restaurantinfo;
+
+    return (
+        <>  <div className=" w-{70 text-center} ">
+            <div className="resdetail text-center">
+                <h1 className="font-bold my-6 text-2xl">{name}</h1> 
+                <span>{id}</span>
+            </div>
+            <div>
+                {categories.length > 0 ? (
+                    categories.map((category, index) => (
+                        <RestaurantCategory key={index} data={category?.card?.card}  showItems={false} />
+                    ))
+                ) : (
+                    <p className="text-center">No categories available</p>
+                )}
             </div>
             </div>
         </>
     );
 };
+
 export default RestaurantMenuPage;

@@ -1,13 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import Search_Button from "./Search_Button";
 import Resto_cart from "./Restocart";
 import { Link } from "react-router-dom";
 import useonlinestatus from "../utils/useonlinestatus";
+import UserContext from '../utils/UserContext'
+
 
 
 
 const Body = () =>{
+  
+  const { setUsername , loggedInUser } = useContext (UserContext);
+
     const [listofrest, setlistofrest] = useState([]);
     const [filteredlist, setfilteredlist]= useState([]);
     const Fetchdata =async ()=>{
@@ -39,6 +44,14 @@ const Body = () =>{
         setfilteredlist(topratefilter);
      }}>
        Top Rated Restaurant</button> 
+       <label >UserName:</label>
+       <input
+        
+        className="inputsearch border-2 "
+        
+        value={loggedInUser}
+        onChange={(e) => setUsername(e.target.value)}
+      />
   </div>
       <div className="Res_cart_conatiner flex flex-wrap gap-10 p-2 fill-black ">
       {/* { filteredlist.map ( restaurant => (<Resto_cart Resdata = {restaurant} />))} */}
