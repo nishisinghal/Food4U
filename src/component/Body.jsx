@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import useonlinestatus from "../utils/useonlinestatus";
 import UserContext from '../utils/UserContext'
 import HeroSection from "./HeroSection";
+import Footer from "./Footer";
 
 
 
@@ -70,6 +71,7 @@ const Body = () =>{
 
       </div>
       </div>
+      <Footer></Footer>
   </>
   
     )}

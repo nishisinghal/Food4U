@@ -1,1 +1,0 @@
-      { filteredlist.map ( restaurant => (<Link to={"/resmenu"+filteredlist.info.id}><Resto_cart Resdata = {restaurant} /></Link>))}
