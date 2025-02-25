@@ -1,4 +1,4 @@
-@import "tailwindcss";
+
 
 
   a {
@@ -6,5 +6,6 @@
   }
 
   *{
-    background-color: rgb(180, 197, 182);
+    background-color: #faf0e6;
   }
+  @import "tailwindcss";

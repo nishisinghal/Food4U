@@ -11,7 +11,7 @@ const handleAddItem =(item)=>{
 return (<div>
    { item?.length>0 ?
     item.map((item)=>(
-        <div className=" border-b-2 p-2 m-2 text-left flex justify-between">
+        <div className=" border-b-2 p-2 m-2 text-left flex justify-between bg-gray-200">
            <div className="w-9/12"> <div>
                 <span className="font-bold">{item.card?.info.name}</span>
                 <span> - ₹ {item.card?.info.price/100 ? item.card?.info.price/100 :item.card?.info.defaultPrice/100}</span>

@@ -28,7 +28,7 @@ const RestaurantMenuPage = () => {
     const { name, id } = restaurantinfo;
 
     return (
-        <>  <div className=" w-{70 text-center} ">
+        <>  <div className=" w-{70 text-center} bg-gray-300 ">
             <div className="resdetail text-center">
                 <h1 className="font-bold my-6 text-2xl">{name}</h1> 
                 <span>{id}</span>

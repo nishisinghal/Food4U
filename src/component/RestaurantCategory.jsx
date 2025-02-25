@@ -8,7 +8,7 @@ const RestauratCategory=(data)=>{
       setshowitem(!showitem);
     };
     return<>
-   <div className="text-center mx-auto my-4 w-6/12 bg-gray-100 shadow-lg p-4 " >
+   <div className="text-center mx-auto my-4 w-6/12 bg-gray-200 shadow-lg p-4 " >
       <div className="flex justify-between" onClick={handleclick}>
       <span className="font-bold">{data.data.title}</span>
       <span>⬇️</span>

@@ -10,7 +10,7 @@ const Footer =()=>{
         <div class="sm:flex sm:items-center sm:justify-between bg-gray-300">
             <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 bg-gray-300" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap bg-gray-300 dark:text-white">CraveIt</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap bg-gray-300 text-black dark:text-white">CraveIt</span>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium bg-gray-300 text-gray-500 sm:mb-0 dark:text-gray-400">
                 <li>
