@@ -9,14 +9,14 @@ const Resto_cart = (props) =>{
       
      }}>
       
-       <div className="Res_image w-full h-35  ">
+       <div className="Res_image w-full h-35  bg-black ">
         <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ Resdata.info.cloudinaryImageId} alt="Pasta" className='h-full w-full object-cover rounded-2xl'/>
        </div>
-       <div className="Res_info  no-underline ">
-         <h4>{Resdata.info.name}</h4>
-         <h6>{Resdata.info.avgRating} {Resdata.info.deliveryTime}</h6>
-         <p>{Resdata.info.cuisines.join(". ")}</p>
-         <p>{Resdata.info.areaName}</p>
+       <div className="Res_info  no-underline bg-black">
+         <h4 className="bg-black">{Resdata.info.name}</h4>
+         <h6 className="bg-black">{Resdata.info.avgRating} {Resdata.info.deliveryTime}</h6>
+         <p className="bg-black">{Resdata.info.cuisines.join(". ")}</p>
+         <p className="bg-black">{Resdata.info.areaName}</p>
    
        </div>
      </div>

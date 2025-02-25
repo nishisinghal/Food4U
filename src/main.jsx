@@ -1,8 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import App from './App.jsx'
-// import './App.css'
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
 import React from 'react'
 import { useState , useEffect} from 'react'
@@ -16,15 +14,11 @@ import RestaurantMenuPage from './component/RestaurantMenuPage'
 import UserContext from './utils/UserContext'
 import { Provider } from 'react-redux'
 import appstore from './utils/appstore'
+import Cart from './component/Cart'
 
 function Applayout() {
 
   const[userName,setUsername]= useState();
-  // useEffect(()=>{
-  //   setUsername("Naman Mangal");
-  //   }
-   
-  //  )
   useEffect(() => {
     if (!userName) {  // Only set default name if it's empty
       setUsername("Naman Mangal");
@@ -71,6 +65,11 @@ const appRouter = createBrowserRouter([
         {
           path: '/resmenu/:resId',
           element:<RestaurantMenuPage />
+      
+        },
+        {
+          path: '/cart',
+          element:<Cart/>
       
         },
 

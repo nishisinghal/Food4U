@@ -5,7 +5,7 @@ import Resto_cart from "./Restocart";
 import { Link } from "react-router-dom";
 import useonlinestatus from "../utils/useonlinestatus";
 import UserContext from '../utils/UserContext'
-
+import HeroSection from "./HeroSection";
 
 
 
@@ -34,25 +34,36 @@ const Body = () =>{
     
     return listofrest.length === 0 ? <Shimmer /> : (
     <>
-    <div className="body">
-      <div>
-  
+    <div className="body w-10/12 m-auto">
+    <div className="p-10">
+      <HeroSection />
+     </div>
+      <div className="m-auto ">
+   <div className="flex  justify-center ">
       <Search_Button listofrest={listofrest} 
               setfilteredlist={setfilteredlist} ></Search_Button>
-      <button className='flex p-1 border-2 m-2 bg-fuchsia-200 hover:bg-black hover:text-pink-400  ' onClick={()=>{
-        const topratefilter = listofrest.filter((res) => res.info.avgRating > 4);
-        setfilteredlist(topratefilter);
-     }}>
-       Top Rated Restaurant</button> 
-       <label >UserName:</label>
+      
+       </div> 
+       {/* <div className="p-6">
+          <label >UserName:</label>
        <input
         
-        className="inputsearch border-2 "
+        className="inputsearch border-2 bg-white "
         
         value={loggedInUser}
         onChange={(e) => setUsername(e.target.value)}
       />
+      </div>  */}
+      
+      <button className='flex p-1 border-2 m-2 hover:bg-white hover:text-pink-400 bg-white  ' onClick={()=>{
+        const topratefilter = listofrest.filter((res) => res.info.avgRating > 4);
+        setfilteredlist(topratefilter);
+     }}>
+       Top Rated Restaurant</button> 
+       
+      
   </div>
+      <h1 className=" border-0 text-center">Explore Restaurnt's in Kota...</h1>
       <div className="Res_cart_conatiner flex flex-wrap gap-10 p-2 fill-black ">
       {/* { filteredlist.map ( restaurant => (<Resto_cart Resdata = {restaurant} />))} */}
       { filteredlist.map ( restaurant => (<Link to={"/resmenu/"+restaurant.info.id}><Resto_cart Resdata = {restaurant} /></Link>))}
