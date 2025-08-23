@@ -15,8 +15,8 @@ const Header =()=>{
 
     return(
     <div className='flex justify-between  mb-2 '>
-      <div className='logo mx-10 text-orange-300'>
-       <h1><b> CraveIt</b></h1>
+      <div className='logo mx-10 font-bold fomt-serif text-red-500 '>
+       <h1><b> Food4U </b></h1>
       </div>
     
       <div className=' flex nav-items items-center'>

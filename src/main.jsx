@@ -21,7 +21,7 @@ function Applayout() {
   const[userName,setUsername]= useState();
   useEffect(() => {
     if (!userName) {  // Only set default name if it's empty
-      setUsername("Naman Mangal");
+      setUsername("Nishi Singhal");
     }
   }, []);
    
