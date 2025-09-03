@@ -4,6 +4,8 @@ import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Header from './component/Header'
 import Body from './component/Body'
+import Login from './component/Login'
+import { Route } from 'react-router-dom'
 
 
 
@@ -55,13 +57,16 @@ import Body from './component/Body'
 
 function App() {
   return (<>
+   <BrowserRouter>
     <Header />
     <Body />
-    
-    
+    <Routes>
+  <Route path='./component/Login' element={<Login/>}/>
+   </Routes>
+    </BrowserRouter>
     </>
 
   )
 }
 
-//export default App;
+export default App;

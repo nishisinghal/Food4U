@@ -8,4 +8,16 @@
   *{
     background-color: #e6e4a7;
   }
+  .loginform{
+    margin: 10px;
+    border: 2.5px solid rgb(121, 120, 120);
+    border-radius: 5px;
+    background-color: rgba(111, 193, 78, 0.999);
+    padding: 9px;
+    margin-top: 8px;
+    color: rgb(38, 49, 202);
+  }
+  .loginform:hover {
+    background-color: rgb(39, 167, 39);
+  }
   @import "tailwindcss";

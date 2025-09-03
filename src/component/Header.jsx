@@ -19,15 +19,15 @@ const Header =()=>{
        <h1><b> Food4U </b></h1>
       </div>
     
-      <div className=' flex nav-items items-center'>
-        <ul className="flex gap-5 mr-2  ">
-          <li> online status:{onlinestatus ? "✅" : "🔴"} </li>
-          <li><Link to='/'  className="no-underline text-black">Home</Link></li>
-          <li><Link to='/about'  className="no-underline text-black">About</Link></li>
-          <li><Link to='/contactus' className="no-underline text-black">Contact us</Link></li>
+      <div className= "flex nav-items justify-center ">
+        <ul className="flex gap-40 mr-4 30px solid black margin-5px">
+        
+          <li><Link to='/'  className=" text-black font-bold text-xl">Home</Link></li>
+          <li><Link to='/about'  className=" text-black font-bold text-xl">About</Link></li>
+          <li><Link to='/contactus' className=" text-black font-bold text-xl">Contact us</Link></li>
           <li className="px-4 font-bold text-xl"> <Link to ='/cart'  className="no-underline text-black" >Cart ({ cart ? cart.length:0} items)</Link></li>
-         <button className="log-btm" onClick={()=>{ log_btn === "Login" ? setlog_btn("Logout"): setlog_btn("Login")}}>{log_btn}</button>
-         <li className="font-bold">{loggedInUser}</li>
+         {/* <button className="log-btm" onClick={()=>{ log_btn === "Login" ? setlog_btn("Logout"): setlog_btn("Login")}}>{log_btn}</button> */}
+         <li><Link to='/Login' className="loginform">LogIn</Link> </li>
 
   
         </ul>

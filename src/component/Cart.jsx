@@ -14,10 +14,12 @@ const Cart =()=>{
      }
     return(
        <div className="m-10 p-10 text-center ">
-        <h1>cart</h1>
+        <h1>Your Cart</h1>
            <div className=" w-6/12 m-auto">
-           <button className=" bg-black text-white p-1.5 m-2  rounded-lg border-2 border-amber-600 " onClick={handelclear}>Clear Cart</button>
            <ItemList item={cartItems}> </ItemList></div> 
+           <button className=" bg-black text-white p-2 m-2  rounded-lg border-2px " onClick={handelclear}>Clear Cart</button>
+           
+           <button className="bg-black text-white m=2 p-2 border-2px" onClick={handelclear}>Order Now!</button>
         </div>
     )
 }
