@@ -1,6 +1,6 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
-    // Example: change this to your actual target API
+    // Example: replace with your target API
     const targetUrl =
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7041&lng=77.1025&page_type=DESKTOP_WEB_LISTING";
 
@@ -20,4 +20,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ error: "Proxy error", details: error.message });
   }
-}
+};
