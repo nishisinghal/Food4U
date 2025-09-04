@@ -16,13 +16,14 @@ const Body = () =>{
 
     const [listofrest, setlistofrest] = useState([]);
     const [filteredlist, setfilteredlist]= useState([]);
-    // const Fetchdata =async ()=>{
-    //   const data = await fetch(
-    //         "`/api/proxy?path=/recipes?search=pasta`");    
-    //   const json = await data.json();
-      fetch(`/api/proxy?path=/endpoint`)
+    const Fetchdata =async ()=>{
+      const data = await fetch(
+            "`/api/proxy?path=/recipes?search=pasta`");    
+      const json = await data.json();
+     fetch('/api/proxy')
   .then(res => res.json())
   .then(data => console.log(data));
+
       
      setlistofrest(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
      setfilteredlist(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)

@@ -1,63 +1,13 @@
-// api/proxy.js
-// Vercel Node.js Function (Web standard API)
-export const runtime = 'nodejs';
+export default async function handler(req, res) {
+  try {
+    const targetUrl = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7041&lng=77.1025&page_type=DESKTOP_WEB_LISTING"; // example API
 
-// CORS helpers
-function corsHeaders(request) {
-  const origin = request.headers.get('Origin') || '*';
-  return {
-    'Access-Control-Allow-Origin': origin, // or lock to your vercel domain
-    'Vary': 'Origin',
-    'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-  };
-}
+    const response = await fetch(targetUrl);
+    const data = await response.json();
 
-export function OPTIONS(request) {
-  return new Response(null, { status: 204, headers: corsHeaders(request) });
-}
-
-// Core proxy handler (used for GET/POST/PUT/PATCH/DELETE)
-async function handle(request) {
-  const url = new URL(request.url);
-  // Frontend will call: /api/proxy?path=/your/api/path
-  const path = url.searchParams.get('path') ?? '';
-  if (!process.env.TARGET_API) {
-    return new Response(
-      JSON.stringify({ error: 'TARGET_API not set' }),
-      { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders(request) } }
-    );
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching data" });
   }
-
-  // Build the target URL safely
-  const base = process.env.TARGET_API.endsWith('/')
-    ? process.env.TARGET_API.slice(0, -1)
-    : process.env.TARGET_API;
-  const safePath = path.startsWith('/') ? path : `/${path}`;
-  const targetUrl = `${base}${safePath}`;
-
-  // Forward headers/body
-  const fwdHeaders = new Headers(request.headers);
-  fwdHeaders.delete('host');
-
-  const body =
-    request.method === 'GET' || request.method === 'HEAD'
-      ? undefined
-      : await request.arrayBuffer(); // forwards JSON/form/etc.
-
-  const upstream = await fetch(targetUrl, {
-    method: request.method,
-    headers: fwdHeaders,
-    body,
-  });
-
-  // Stream back response (preserve content-type)
-  const outHeaders = {
-    ...corsHeaders(request),
-    'Content-Type': upstream.headers.get('content-type') || 'application/json',
-  };
-
-  return new Response(upstream.body, { status: upstream.status, headers: outHeaders });
 }
-
-export { handle as GET, handle as POST, handle as PUT, handle as PATCH, handle as DELETE };
