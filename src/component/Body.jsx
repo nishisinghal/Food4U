@@ -16,13 +16,26 @@ const Body = () =>{
 
     const [listofrest, setlistofrest] = useState([]);
     const [filteredlist, setfilteredlist]= useState([]);
-    const Fetchdata =async ()=>{
-      const data = await fetch(
-            "`/api/proxy?path=/recipes?search=pasta`");    
-      const json = await data.json();
-     fetch('/api/proxy')
-  .then(res => res.json())
-  .then(data => console.log(data));
+    
+     const Fetchdata = async () => {
+  fetch("/api/proxy")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data); // check the API response
+
+      setlistofrest(
+        data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
+
+      setfilteredlist(
+        data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
+    });
+};
+
+useEffect(() => {
+  Fetchdata();
+}, []);
 
       
      setlistofrest(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
