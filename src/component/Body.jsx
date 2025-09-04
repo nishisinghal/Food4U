@@ -16,10 +16,13 @@ const Body = () =>{
 
     const [listofrest, setlistofrest] = useState([]);
     const [filteredlist, setfilteredlist]= useState([]);
-    const Fetchdata =async ()=>{
-      const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.2138156&lng=75.8647527&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");    
-      const json = await data.json();
+    // const Fetchdata =async ()=>{
+    //   const data = await fetch(
+    //         "`/api/proxy?path=/recipes?search=pasta`");    
+    //   const json = await data.json();
+      fetch(`/api/proxy?path=/endpoint`)
+  .then(res => res.json())
+  .then(data => console.log(data));
       
      setlistofrest(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
      setfilteredlist(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
