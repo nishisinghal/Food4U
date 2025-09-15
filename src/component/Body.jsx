@@ -18,24 +18,18 @@ const Body = () =>{
     const [filteredlist, setfilteredlist]= useState([]);
     
      const Fetchdata = async () => {
-  fetch("/api/proxy")
-    .then(res => res.json())
-    .then(data => {
-      console.log(data); // check the API response
-
-      setlistofrest(
-        data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      );
-
-      setfilteredlist(
-        data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      );
-    });
-};
-
-useEffect(() => {
-  Fetchdata();
-}, []);
+  fetch("/api/restaurant")   
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data); // check the API response
+    setlistofrest(
+      data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setfilteredlist(
+      data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  })
+  .catch((err) => console.error("Proxy fetch error:", err));
 
       
      setlistofrest(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
