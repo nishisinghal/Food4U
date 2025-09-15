@@ -75,7 +75,7 @@ const Body = () =>{
        
       
   </div>
-      <h1 className=" border-0 text-center">Explore Restaurnt's in Kota...</h1>
+      <h1 className=" border-0 text-center">Explore Restaurnt's in Bhopal</h1>
       <div className="Res_cart_conatiner flex flex-wrap gap-10 p-2 fill-black ">
       {/* { filteredlist.map ( restaurant => (<Resto_cart Resdata = {restaurant} />))} */}
       { filteredlist.map ( restaurant => (<Link to={"/resmenu/"+restaurant.info.id}><Resto_cart Resdata = {restaurant} /></Link>))}
