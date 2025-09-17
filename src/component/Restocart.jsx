@@ -15,8 +15,8 @@ const Resto_cart = (props) =>{
        <div className="Res_info  no-underline bg-white text-black ">
          <h4 className="bg-white">{Resdata.info.name}</h4>
          <h6 className="bg-white">{Resdata.info.avgRating}⭐️{Resdata.info.deliveryTime}</h6>
-         <p className="bg-white">{Resdata.info.cuisines.join(". ")}</p>
-         <p className="bg-white">{Resdata.info.areaName}</p>
+         {/* <p className="bg-white">{Resdata.info.cuisines.join(". ")}</p> */}
+         <p className="bg-white">📍{Resdata.info.areaName}</p>
    
        </div>
      </div>

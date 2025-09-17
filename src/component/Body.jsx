@@ -71,7 +71,7 @@ const Body = () =>{
         const topratefilter = listofrest.filter((res) => res.info.avgRating > 4);
         setfilteredlist(topratefilter);
      }}>
-       Top Rated Restaurant</button> 
+       ⭐️Top Rated Restaurants</button> 
        
       
   </div>
