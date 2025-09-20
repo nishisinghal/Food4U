@@ -2,11 +2,15 @@ export default async function handler(req, res) {
   try {
     const { restaurantId, lat, lng } = req.query;
 
-    if (!restaurantId || !lat || !lng) {
-      return res.status(400).json({ error: "Missing required query params" });
+    // Default to Bhopal lat/lng if not passed
+    const finalLat = lat || "23.2599333";
+    const finalLng = lng || "77.412615";
+
+    if (!restaurantId) {
+      return res.status(400).json({ error: "Missing restaurantId query param" });
     }
 
-    const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.2599333&lng=77.412615&restaurantId=${restaurantId}&catalog_qa=undefined&submitAction=ENTER`;
+    const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${finalLat}&lng=${finalLng}&restaurantId=${restaurantId}&submitAction=ENTER`;
 
     const response = await fetch(url, {
       headers: {
@@ -18,9 +22,10 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const text = await response.text();
-      return res
-        .status(response.status)
-        .json({ error: `Upstream error ${response.status}`, body: text.slice(0, 200) });
+      return res.status(response.status).json({
+        error: `Swiggy upstream error ${response.status}`,
+        body: text.slice(0, 200),
+      });
     }
 
     const data = await response.json();
